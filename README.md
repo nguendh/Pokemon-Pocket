@@ -9,9 +9,13 @@ Self study [dart language](https://dart.dev/) and [flutter framework](https://fl
 
 
 # Copyright Notice
-**Please note everything in repository are copyrighted by the Pokémon Company and its affiliates**. 
-
+**Please note everything in repository are copyrighted by the Pokémon Company and its affiliates**.
+ 
 This repository is merely a compilation of data collected by the editors of Bulbapedia and Pokemondb.
+
+The Json data from:
+
+https://github.com/joseluisq/pokemons
 
 # Config project
 1. Install Flutter
