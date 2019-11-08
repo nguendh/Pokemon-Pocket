@@ -79,7 +79,9 @@ class MasterScreenState extends State<MasterScreen> {
     return Center(
       child: ListTile(
         leading: Image.network(
-          pokemon.sprites.animated,
+          pokemon.sprites.animated.isNotEmpty
+              ? pokemon.sprites.animated
+              : pokemon.sprites.normal ,
           width: 64,
           height: 64,
         ),

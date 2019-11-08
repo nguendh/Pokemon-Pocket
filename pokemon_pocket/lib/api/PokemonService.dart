@@ -5,7 +5,7 @@ import 'package:http/http.dart' as http;
 import 'package:pokemon_pocket/model/PokemonResponse.dart';
 
 const baseUrl =
-    "https://raw.githubusercontent.com/joseluisq/pokemons/master/pokemons.json";
+    "https://raw.githubusercontent.com/ttpho/Pokemon-Pocket/master/datas/pokemons.json";
 
 class PokemonService {
   static Future<List<Pokemon>> fetchJson() async {
