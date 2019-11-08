@@ -96,4 +96,14 @@ class SpritesBean {
         "large": large,
         "animated": animated,
       };
+
+  bool _isValid(String s) => animated != null && animated.isNotEmpty;
+
+  String imagePreview() {
+    if (_isValid(animated)) return animated;
+    if (_isValid(normal)) return normal;
+    if (_isValid(large)) return large;
+
+    return null;
+  }
 }

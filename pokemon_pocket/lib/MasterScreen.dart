@@ -1,3 +1,4 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
@@ -75,16 +76,21 @@ class MasterScreenState extends State<MasterScreen> {
     return allPokemon;
   }
 
-  Widget _makeCellItem(Pokemon pokemon) {
-    return Center(
-      child: ListTile(
-        leading: Image.network(
-          pokemon.sprites.animated.isNotEmpty
-              ? pokemon.sprites.animated
-              : pokemon.sprites.normal ,
+  CachedNetworkImage _imagePreview(Pokemon pokemon) => CachedNetworkImage(
+        imageUrl: pokemon.sprites.imagePreview(),
+        width: 64,
+        height: 64,
+        errorWidget: (context, url, error) => Image.network(
+          pokemon.sprites.large,
           width: 64,
           height: 64,
         ),
+      );
+
+  Widget _makeCellItem(Pokemon pokemon) {
+    return Center(
+      child: ListTile(
+        leading: _imagePreview(pokemon),
         title: Text(pokemon.name),
         dense: true,
         subtitle: Text(pokemon.nationalNumber),
