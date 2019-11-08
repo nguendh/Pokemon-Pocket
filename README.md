@@ -1,4 +1,4 @@
-# Pokemon-Pocket
+# Pokemon Pocket
 Self study [dart language](https://dart.dev/) and [flutter framework](https://flutter.dev/) 
 
 
