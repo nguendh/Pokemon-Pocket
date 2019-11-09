@@ -7,6 +7,13 @@ Self study [dart language](https://dart.dev/) and [flutter framework](https://fl
 | <img src="/screenshot/device-2019-10-30-112805.png" width = "400" /> |   <img src="/screenshot/Simulator%20Screen%20Shot%20-%20iPhone%208%20-%202019-10-30%20at%2011.31.58.png" width = "400" />  | 
 | <img src="/screenshot/device-2019-10-30-112833.png" width = "400" /> |   <img src="/screenshot/Simulator%20Screen%20Shot%20-%20iPhone%208%20-%202019-10-30%20at%2011.33.13.png" width = "400" />  | 
 
+and iPad
+
+| iPad|
+| ------------- |
+| <img src="/screenshot/Screen%20Shot%200001-11-09%20at%2011.05.26.png" width = "400" /> |   
+| <img src="/screenshot/Screen%20Shot%200001-11-09%20at%2011.05.11.png" width = "800" /> |  
+
 
 # Copyright Notice
 **Please note everything in repository are copyrighted by the Pokémon Company and its affiliates**.
