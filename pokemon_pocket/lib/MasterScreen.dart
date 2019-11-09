@@ -1,11 +1,11 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:pokemon_pocket/device_helper.dart';
 
 import 'DetailScreen.dart';
 import 'api/PokemonService.dart';
 import 'model/PokemonResponse.dart';
-import 'package:device_info/device_info.dart';
 
 class MasterScreen extends StatefulWidget {
   MasterScreen({Key key}) : super(key: key);
@@ -35,15 +35,8 @@ class MasterScreenState extends State<MasterScreen> {
         return _makeListView(orientation);
       });
 
-  Future<bool> _iOSiPad() async {
-    var deviceInfo = DeviceInfoPlugin();
-    var info = await deviceInfo.iosInfo;
-    return info.model.toLowerCase().contains("ipad") &&
-        info.systemName.toLowerCase().contains("ios");
-  }
-
   _checkDeviceInfo() {
-    _iOSiPad().then((bool value) {
+    DeviceHelper.onIPad().then((bool value) {
       _isIpad = value;
       _loadAllPokemon();
     }, onError: (e) {
@@ -53,9 +46,7 @@ class MasterScreenState extends State<MasterScreen> {
   }
 
   GridView _makeListView(Orientation orientation) {
-    var crossAxisCount = _isIpad
-        ? (orientation == Orientation.portrait ? 4 : 6)
-        : (orientation == Orientation.portrait ? 2 : 4);
+    var crossAxisCount = DeviceHelper.crossAxisCount(orientation, _isIpad);
     var gridDelegate = new SliverGridDelegateWithFixedCrossAxisCount(
       crossAxisCount: crossAxisCount,
       childAspectRatio: 2.0,
