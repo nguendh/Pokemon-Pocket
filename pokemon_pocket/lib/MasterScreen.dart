@@ -93,7 +93,7 @@ class MasterScreenState extends State<MasterScreen> {
         width: 64,
         height: 64,
         errorWidget: (context, url, error) => Image.network(
-          pokemon.sprites.large,
+          PokemonService.urlImagePreview(pokemon),
           width: 64,
           height: 64,
         ),
