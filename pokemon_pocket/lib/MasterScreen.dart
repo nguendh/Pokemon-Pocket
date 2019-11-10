@@ -27,13 +27,43 @@ class MasterScreenState extends State<MasterScreen> {
   @override
   Widget build(BuildContext context) => Scaffold(body: _getBody());
 
-  _getBody() => _isLoadingDialog() ? _makeProgressDialog() : _contentView();
+  _isLoading() => _allPokemon == null || _allPokemon.length == 0;
 
-  _isLoadingDialog() => _allPokemon.length == 0;
+  _getBody() => _isLoading() ? _makeProgressDialog() : _contentView();
 
   _contentView() => new OrientationBuilder(builder: (context, orientation) {
         return _makeListView(orientation);
       });
+
+  _showMaterialDialog() {
+    showDialog(
+        context: context,
+        builder: (context) {
+          return AlertDialog(
+            title: Text('Error'),
+            content: Text(
+                'Not connected to the internet.\nPlease connect to internet and retry again.'),
+            actions: <Widget>[
+              FlatButton(
+                  onPressed: () {
+                    _dismissDialog();
+                    _retry();
+                  },
+                  child: Text('Try')),
+            ],
+          );
+        });
+  }
+
+  _retry() {
+    Future.delayed(const Duration(milliseconds: 500), () {
+      _loadAllPokemon();
+    });
+  }
+
+  _dismissDialog() {
+    Navigator.pop(context);
+  }
 
   _checkDeviceInfo() {
     DeviceHelper.onIPad().then((bool value) {
@@ -70,6 +100,7 @@ class MasterScreenState extends State<MasterScreen> {
     }, onError: (e) {
       setState(() {
         _allPokemon = null;
+        _showMaterialDialog();
       });
     });
   }
