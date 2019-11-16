@@ -9,9 +9,7 @@ class MainScreen extends StatefulWidget {
   MainScreen({Key key}) : super(key: key);
 
   @override
-  State<StatefulWidget> createState() {
-    return MainScreenState();
-  }
+  State<StatefulWidget> createState() => MainScreenState();
 }
 
 class MainScreenState extends State<MainScreen> {
